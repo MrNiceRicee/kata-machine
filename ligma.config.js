@@ -4,7 +4,7 @@ module.exports = {
         // "LRU",
         "LinearSearchList",
         "BinarySearchList",
-        // "TwoCrystalBalls",
+        "TwoCrystalBalls",
         // "BubbleSort",
         // "SinglyLinkedList",
         // "DoublyLinkedList",
