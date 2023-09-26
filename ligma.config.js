@@ -5,7 +5,7 @@ module.exports = {
         "LinearSearchList",
         "BinarySearchList",
         "TwoCrystalBalls",
-        // "BubbleSort",
+        "BubbleSort",
         // "SinglyLinkedList",
         // "DoublyLinkedList",
         // "Queue",
