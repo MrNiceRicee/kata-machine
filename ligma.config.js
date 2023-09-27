@@ -11,7 +11,7 @@ module.exports = {
         "Queue",
         "Stack",
         // "ArrayList",
-        // "MazeSolver",
+        "MazeSolver",
         // "QuickSort",
         // "BTPreOrder",
         // "BTInOrder",
