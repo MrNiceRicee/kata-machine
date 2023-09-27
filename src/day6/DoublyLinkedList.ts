@@ -199,7 +199,6 @@ export default class DoublyLinkedList<T> {
     }
     // 0       1       2
     // [A] <-> [B] <-> [C]
-    // example: remove (1) [B]
     removeAt(idx: number): T | undefined {
         // if the idx is lower than 0, undefined
         // if the idx is greater than or equal to the length, undefined
@@ -207,19 +206,23 @@ export default class DoublyLinkedList<T> {
 
         // if we want to remove the head
         if (idx === 0) {
+            // Visual: Before removal
             // [A] <-> [B] <-> [C]
             // ^ head
-            // [B] <-> [C]
-            // ^ head
+
             // keep reference to head
             const value = this.head?.value;
             // move head to the next node
-            // [A] <-> [B] <-> [C]
-            // ^ head
-            //         ^ head
             this.head = this.head?.next;
+            // Visual: After removing [A]
             // [B] <-> [C]
             // ^ head
+            if (this.head) {
+                // [A] <-> [B] <-> [C]
+                //          ^ head
+                this.head.prev = undefined;
+                // [B] <-> [C]
+            }
 
             // subtract from length
             this.length--;
@@ -237,35 +240,34 @@ export default class DoublyLinkedList<T> {
             current = current.next;
         }
 
-        // [A] <-> [B] <-> [C]
-        //         ^ current
-        // [A] <-> [C]
-
-        // if current was not found
+        // safety check, but this should never happen because of the boundary check above
         if (!current) return undefined;
 
-        // if removing the tail (end)
-        if (idx === this.length - 1) {
-            const removedValue = current.value;
+        // store the value we want to remove
+        const removedValue = current.value;
+
+        // visual: Before removal
+        // [A] <-> [B] <-> [C]
+        //         ^ current
+        if (current.prev) {
             // [A] <-> [B] <-> [C]
-            //                  ^ current
-            current.prev!.next = undefined;
-            // current.prev[B].next = undefined
-            // [A] <-> [B] severed the connection to C
-            this.length--;
-            return removedValue;
+            //  ^ current.prev
+            // point current.prev [A] to current.next [C]
+            current.prev.next = current.next;
+            // [A] <- [B] <-> [C]
+            //  \--------------^
         }
 
-        // the node we want to remove is somewhere between the head and tail
-        // [A] <-> [B] <-> [C]
-        //         ^ current and the node we want to remove
-        // reference to the value we want to remove
-        const removedValue = current.value;
-        current.prev!.next = current.next;
-        current.next!.prev = current.prev;
+        if (current.next) {
+            // potential visual: Before removal
+            // [A] <- [B] <-> [C]
+            //  \--------------^
+            current.next.prev = current.prev;
+            // potential visual: After removal
+            // [A] <-> [C]
+        }
 
         this.length--;
-
         return removedValue;
     }
 }
