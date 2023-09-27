@@ -8,7 +8,7 @@ module.exports = {
         "BubbleSort",
         // "SinglyLinkedList",
         // "DoublyLinkedList",
-        // "Queue",
+        "Queue",
         // "Stack",
         // "ArrayList",
         // "MazeSolver",
