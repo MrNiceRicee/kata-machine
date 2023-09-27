@@ -9,7 +9,7 @@ module.exports = {
         // "SinglyLinkedList",
         // "DoublyLinkedList",
         "Queue",
-        // "Stack",
+        "Stack",
         // "ArrayList",
         // "MazeSolver",
         // "QuickSort",
