@@ -2,16 +2,16 @@ module.exports = {
     dsa: [
         // "DFSOnBST",
         // "LRU",
-        "LinearSearchList",
-        "BinarySearchList",
-        "TwoCrystalBalls",
-        "BubbleSort",
-        "SinglyLinkedList",
-        "DoublyLinkedList",
+        // "LinearSearchList",
+        // "BinarySearchList",
+        // "TwoCrystalBalls",
+        // "BubbleSort",
+        // "SinglyLinkedList",
+        // "DoublyLinkedList",
         "Queue",
         "Stack",
         // "ArrayList",
-        // "MazeSolver",
+        "MazeSolver",
         // "QuickSort",
         // "BTPreOrder",
         // "BTInOrder",
@@ -25,5 +25,4 @@ module.exports = {
         // "Map",
         // "MinHeap",
     ],
-}
-
+};
