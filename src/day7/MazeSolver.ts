@@ -16,8 +16,10 @@ function walk(
     // base case
     // off the map
     if (
-        curr.x < 0 ||curr.x >= maze[0].length ||
-        curr.y < 0 ||curr.y >= maze.length
+        curr.x < 0 ||
+        curr.x >= maze[0].length ||
+        curr.y < 0 ||
+        curr.y >= maze.length
     ) {
         return false;
     }
@@ -32,6 +34,8 @@ function walk(
         path.push(end);
         return true;
     }
+
+    // seen
     if (seen[curr.y][curr.x]) {
         return false;
     }
